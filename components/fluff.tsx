@@ -28,7 +28,7 @@ export default function Fluff() {
             </div>
             <p className="mt-4 text-sm/6 text-gray-900">
               We care about your data. Read our{' '}
-              <a href="#" className="font-semibold text-indigo-600 hover:text-black">
+              <a href="#" className="font-semibold text-black hover:text-slate-700">
                 privacy&nbsp;policy
               </a>
               .
