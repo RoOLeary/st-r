@@ -20,7 +20,7 @@ interface NavBarProps {
 export function NavBar({ scrollY, dark }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const isDark = dark;
-  const isScrolled = scrollY > 50;
+  const isScrolled = scrollY ? scrollY > 50 : 0;
 
   return (
     <nav

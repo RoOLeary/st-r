@@ -75,7 +75,7 @@ const heroSlides = [
     },
   ]
 
-const CategoryPage = async ({ params }: CategoryPageProps) => {
+const CategoryPage = async ({ params }: any) => {
   const { category, id } = params;
   const [scrollY, setScrollY] = useState(0)
   const heroRef = useRef<HTMLDivElement>(null)
