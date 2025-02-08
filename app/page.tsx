@@ -10,6 +10,7 @@ import ProductList from "@/components/product-list"
 import BentoGrid from "@/components/bento-grid"
 import Fluff from "@/components/fluff"
 
+
 const heroSlides = [
   {
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070",
@@ -87,7 +88,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <NavBar scrollY={scrollY} />
-
     {/* Hero Carousel Section */}
       <section ref={heroRef} className="relative">
         <Carousel className="w-full relative" opts={{ loop: true }}>
@@ -113,7 +113,7 @@ export default function Home() {
                         opacity: Math.max(0, 1 - scrollY / 500),
                       }}
                     >
-                      <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
+                      <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
                         {slide.title}
                       </h1>
                       <p className="text-base md:text-lg lg:text-xl text-gray-200 mb-6 md:mb-8">
@@ -146,7 +146,7 @@ export default function Home() {
         <ProductList />
       </section>
       {/* Featured Posts Section */}
-      <section className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-gray-50 mt-24"  style={{
+      <section className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 bg-gray-50 mt-24"  style={{
           transform: `translateY(${Math.max(0, scrollY * 0.1)}px)`,
         }}>
         <div className="relative max-w-7xl mx-auto md:px-8">

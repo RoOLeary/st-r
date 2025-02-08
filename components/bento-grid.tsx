@@ -6,7 +6,7 @@ import { Link } from "next-view-transitions";
 export const BentoGrid = ({ scrollY }:any) => {
   return (
     <section
-      className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-12 md:mt-10"
+      className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 md:pt-12 md:mt-10"
       style={{ transform: `translateY(${Math.max(0, scrollY * 0.1)}px)` }}
     >
       <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Featured Collections</h2>
