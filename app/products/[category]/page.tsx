@@ -96,7 +96,7 @@ const CategoryPage = async ({ params }: CategoryPageProps) => {
               {category}
             </h1>
             <div className="bg-white">
-              <div className="mx-auto py-16 sm:py-16 lg:max-w-7xl">
+              <div className="mx-auto pt-4 pb-16 sm:pb-16 lg:max-w-7xl">
                 
                 <p className="mt-4 text-base text-gray-500">
                   Each season, we collaborate with world-class designers to create a collection inspired by the natural world.

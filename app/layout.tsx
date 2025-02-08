@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NavBar } from '@/components/nav-bar';
 import { ViewTransitions } from 'next-view-transitions'
+import CookieBanner from '@/components/cookie-banner';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <CookieBanner />
         </body>
       </html>
     </ViewTransitions>
