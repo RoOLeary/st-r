@@ -1,35 +1,36 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { Menu, X, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Shop", href: "/shop" },
-  { name: "Collections", href: "/collections" },
+  { name: "Collections", href: "/products" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
 
 interface NavBarProps {
-  scrollY: number;
+  scrollY?: number;
+  dark?: boolean; 
 }
 
-export function NavBar({ scrollY }: NavBarProps) {
+export function NavBar({ scrollY, dark }: NavBarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const isDark = dark;
   const isScrolled = scrollY > 50;
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${isScrolled ? "bg-white shadow-sm" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${isScrolled || isDark ? "bg-white shadow-sm" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className={`text-2xl font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
+              <Link href="/" className={`text-2xl font-bold ${isScrolled || isDark ? "text-primary" : "text-white"}`}>
                 STÖR
               </Link>
             </div>
@@ -38,7 +39,7 @@ export function NavBar({ scrollY }: NavBarProps) {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium ${isScrolled ? "text-gray-500 hover:border-gray-300 hover:text-gray-700" : "text-white hover:border-white"}`}
+                  className={`inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium ${isScrolled || isDark ? "text-gray-500 hover:border-gray-300 hover:text-gray-700" : "text-white hover:border-white"}`}
                 >
                   {item.name}
                 </Link>
@@ -46,10 +47,10 @@ export function NavBar({ scrollY }: NavBarProps) {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Button variant="ghost" size="icon" className={isScrolled ? "" : "text-white"}>
+            <Button variant="ghost" size="icon" className={isScrolled || isDark ? "" : "text-white"}>
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className={isScrolled ? "" : "text-white"}>
+            <Button variant="ghost" size="icon" className={isScrolled || isDark ? "" : "text-white"}>
               <User className="h-5 w-5" />
             </Button>
           </div>
@@ -58,7 +59,7 @@ export function NavBar({ scrollY }: NavBarProps) {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={isScrolled ? "" : "text-white"}
+              className={isScrolled || isDark ? "" : "text-white"}
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
@@ -76,7 +77,7 @@ export function NavBar({ scrollY }: NavBarProps) {
         className={`fixed inset-y-0 right-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-500 ease-in-out sm:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="h-full flex flex-col">
-          <div className="flex items-center justify-end p-4 border-b">
+          <div className="flex items-center justify-end p-3 border-b">
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
               <X className="h-6 w-6" aria-hidden="true" />
             </Button>

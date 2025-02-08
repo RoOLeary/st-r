@@ -138,7 +138,7 @@ export default function Home() {
      <BentoGrid  />
 
       <section
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:py-16"
+        className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pb-16"
         style={{
           transform: `translateY(${Math.max(0, scrollY * 0.1)}px)`,
         }}
@@ -146,7 +146,7 @@ export default function Home() {
         <ProductList />
       </section>
       {/* Featured Posts Section */}
-      <section className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-gray-50 mt-10"  style={{
+      <section className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 bg-gray-50 mt-24"  style={{
           transform: `translateY(${Math.max(0, scrollY * 0.1)}px)`,
         }}>
         <div className="relative max-w-7xl mx-auto md:px-8">

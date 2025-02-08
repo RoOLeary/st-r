@@ -1,64 +1,74 @@
+import { Link } from "next-view-transitions";
+
 const products = [
     {
-      id: 1,
+      id: 917726,
       name: 'Earthen Bottle',
       href: '#',
+      category: "bottles",
       price: '$48',
       imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg',
       imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
     },
     {
-      id: 2,
+      id: 660776,
       name: 'Nomad Tumbler',
       href: '#',
+      category: "tumblers",
       price: '$35',
       imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg',
       imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
     },
     {
-      id: 3,
+      id: 939023,
       name: 'Focus Paper Refill',
       href: '#',
+      category: "bottles",
       price: '$89',
       imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg',
       imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
     },
     {
-      id: 4,
+      id: 830671,
       name: 'Machined Mechanical Pencil',
       href: '#',
+      category: "tumbler",
       price: '$35',
       imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg',
       imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
     },
     {
-        id: 5,
+        id: 381562,
         name: 'Earthen Bottle',
         href: '#',
+        category: "bottles",
         price: '$48',
         imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg',
         imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
       },
       {
-        id: 6,
+        id: 998840,
         name: 'Nomad Tumbler',
         href: '#',
+        category: "tumbler",
         price: '$35',
         imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg',
         imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
       },
       {
-        id: 7,
+        id: 738202,
         name: 'Focus Paper Refill',
         href: '#',
+        category: "bottles",
         price: '$89',
         imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-03.jpg',
         imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
       },
       {
-        id: 8,
+        id: 432353,
         name: 'Machined Mechanical Pencil',
         href: '#',
+        category: "bottles",
         price: '$35',
         imageSrc: 'https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-04.jpg',
         imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
@@ -73,7 +83,7 @@ const products = [
           <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Products</h2>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products.map((product) => (
-              <a key={product.id} href={product.href} className="group">
+              <Link key={product.id} href={`/products/${product.category}/${product.id}`} className="group">
                 <img
                   alt={product.imageAlt}
                   src={product.imageSrc}
@@ -81,7 +91,7 @@ const products = [
                 />
                 <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
                 <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
