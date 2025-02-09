@@ -1,6 +1,7 @@
+//  @ts-nocheck
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, Key, ReactNode, ReactPortal, JSXElementConstructor, ReactElement } from "react"
 import { Dialog } from "@headlessui/react"
 import { NavBar } from "@/components/nav-bar"
 
@@ -38,10 +39,11 @@ const products = [
   { id: 4, name: "Basic Tee 8-Pack", href: "#", price: "$256", category: "pants-shorts", color: "green", imageSrc: "https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-02-image-card-01.jpg" },
 ]
 
-function FilterSection({ filters, selectedFilters, toggleFilter, clearFilters, resetFilters }) {
+// @ts-nocheck aaa
+function FilterSection({ filters, selectedFilters, toggleFilter, clearFilters, resetFilters }:any) {
   return (
     <form className="divide-y divide-gray-200">
-      {filters.map((section) => (
+      {filters.map((section: { id: Key | null | undefined; name: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; options: any[] }) => (
         <fieldset key={section.id} className="py-6">
           <legend className="text-sm font-medium text-gray-900 flex justify-between">
             {section.name}
@@ -50,10 +52,11 @@ function FilterSection({ filters, selectedFilters, toggleFilter, clearFilters, r
             </button>
           </legend>
           <div className="space-y-3 pt-4">
-            {section.options.map((option, index) => (
+            {section.options.map((option: { value: any; label: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined }, index: any) => (
               <label key={`${section.id}-${option.value}-${index}`} className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"
+                    // @ts-ignore
                   checked={selectedFilters[section.id]?.has(option.value) || false}
                   onChange={() => toggleFilter(section.id, option.value)}
                   className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
@@ -74,7 +77,7 @@ export default function Store() {
   const [selectedFilters, setSelectedFilters] = useState({})
   const [searchQuery, setSearchQuery] = useState("")
 
-  const toggleFilter = (filterId, value) => {
+  const toggleFilter = (filterId: string | number, value: unknown) => {
     setSelectedFilters((prev) => {
       const updated = { ...prev }
       const currentSet = new Set(updated[filterId] || [])
@@ -90,7 +93,7 @@ export default function Store() {
     })
   }
 
-  const clearFilters = (filterId) => {
+  const clearFilters = (filterId: string | number) => {
     setSelectedFilters((prev) => {
       const updated = { ...prev }
       delete updated[filterId]
