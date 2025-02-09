@@ -62,7 +62,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="max-lg:mt-16 lg:col-span-1">
+            {/* <div className="max-lg:mt-16 lg:col-span-1">
               <p className="text-base/7 font-semibold text-gray-500">The numbers</p>
               <hr className="mt-6 border-t border-gray-200" />
               <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
@@ -91,7 +91,7 @@ export default function Page() {
                   </dd>
                 </div>
               </dl>
-            </div>
+            </div> */}
           </section>
         </div>
       </div>
