@@ -23,7 +23,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
          
-          <main className="min-h-screen bg-background overflow-x-hidden">
+          <main className="h-full bg-background overflow-x-hidden">
             
             <NavBar />
             {children}
