@@ -15,7 +15,7 @@ const navItems = [
 
 interface NavBarProps {
   scrollY?: number;
-  dark?: boolean; 
+  dark?: boolean;
 }
 
 export function NavBar({ scrollY, dark }: NavBarProps) {
@@ -25,13 +25,20 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${isScrolled || isDark ? "bg-white shadow-sm" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
+        isScrolled || isDark ? "bg-white shadow-sm" : "bg-transparent"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className={`text-2xl font-bold ${isScrolled || isDark ? "text-primary" : "text-white"}`}>
+              <Link
+                href="/"
+                className={`text-2xl font-bold ${
+                  isScrolled || isDark ? "text-primary" : "text-white"
+                }`}
+              >
                 STÖR
               </Link>
             </div>
@@ -40,7 +47,11 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium ${isScrolled || isDark ? "text-gray-500 hover:border-gray-300 hover:text-gray-700" : "text-white hover:border-white"}`}
+                  className={`inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium ${
+                    isScrolled || isDark
+                      ? "text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                      : "text-white hover:border-white"
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -48,10 +59,18 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Button variant="ghost" size="icon" className={isScrolled || isDark ? "" : "text-white"}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={isScrolled || isDark ? "" : "text-white"}
+            >
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className={isScrolled || isDark ? "" : "text-white"}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={isScrolled || isDark ? "" : "text-white"}
+            >
               <User className="h-5 w-5" />
             </Button>
           </div>
@@ -73,13 +92,20 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
         </div>
       </div>
 
-      {/* Smooth Slide-in Mobile Menu */}
+      {/* Mobile Menu - Now with black background and white text */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-500 ease-in-out sm:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed inset-y-0 right-0 z-50 w-64 bg-black text-white shadow-lg transform transition-transform duration-500 ease-in-out sm:hidden ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="h-full flex flex-col">
-          <div className="flex items-center justify-end p-3 border-b">
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
+          <div className="flex items-center justify-end p-3 border-b border-gray-700">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
               <X className="h-6 w-6" aria-hidden="true" />
             </Button>
           </div>
@@ -89,19 +115,19 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-base font-medium text-white hover:bg-gray-800"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
             </div>
-            <div className="border-t border-gray-200 py-4">
+            <div className="border-t border-gray-700 py-4">
               <div className="flex items-center justify-around px-4">
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-white">
                   <ShoppingBag className="h-6 w-6" />
                 </Button>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="text-white">
                   <User className="h-6 w-6" />
                 </Button>
               </div>

@@ -9,6 +9,7 @@ import { NavBar } from "@/components/nav-bar"
 import ProductList from "@/components/product-list"
 import BentoGrid from "@/components/bento-grid"
 import Fluff from "@/components/fluff"
+import Bags from "@/components/bags"
 
 
 const heroSlides = [
@@ -145,12 +146,20 @@ export default function Home() {
       >
         <ProductList />
       </section>
+      <section
+        className="relative max-w-7xl mx-auto md:pb-16"
+        style={{
+          transform: `translateY(${Math.max(0, scrollY * 0.1)}px)`,
+        }}
+      >
+        <Bags />
+      </section>
       {/* Featured Posts Section */}
       <section className="relative w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 bg-gray-50 mt-24"  style={{
           transform: `translateY(${Math.max(0, scrollY * 0.1)}px)`,
         }}>
         <div className="relative max-w-7xl mx-auto md:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Featured Articles</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">Recent Articles</h2>
           <div className="grid gap-8">
             {featuredPosts.map((post, index) => (
               <Card key={index} className="group overflow-hidden">

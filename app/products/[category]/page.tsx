@@ -3,8 +3,10 @@
 import { NavBar } from "@/components/nav-bar";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Link } from "next-view-transitions";
+import SpecialProducts from "@/components/specials";
 export const dynamic = "force-dynamic"; // Enables server-side rendering
 import { useEffect, useRef, useState } from "react"
+import Bags from "@/components/bags";
 
 const heroSlides = [
     {
@@ -118,6 +120,8 @@ const CategoryPage = async ({ params }: any) => {
               </div>
             </div>
         </section>
+        <SpecialProducts />
+        <Bags />
     </main>
   );
 };

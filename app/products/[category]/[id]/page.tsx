@@ -18,6 +18,7 @@ import {
   TabPanels,
 } from '@headlessui/react'
 import { NavBar } from '@/components/nav-bar'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const product = {
@@ -361,90 +362,89 @@ export default function Product() {
 
       {/* Reviews */}
       <section aria-labelledby="reviews-heading" className="bg-white">
-        <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-x-8 lg:px-8 lg:py-32">
-          <div className="lg:col-span-4">
-            <h2 id="reviews-heading" className="text-2xl font-bold tracking-tight text-gray-900">
-              Customer Reviews
-            </h2>
+      <div className="mx-auto max-w-7xl px-8 py-32 lg:grid lg:grid-cols-12 lg:gap-x-8">
+        {/* Left Column: Review Summary */}
+        <div className="lg:col-span-4">
+          <h2 id="reviews-heading" className="text-2xl font-bold tracking-tight text-gray-900">
+            Customer Reviews
+          </h2>
 
-            <div className="mt-3 flex items-center">
-              <div>
-                <div className="flex items-center">
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <svg
-                      key={rating}
-                      className={`h-5 w-5 flex-shrink-0 ${
-                        reviews.average > rating ? 'text-yellow-400' : 'text-gray-300'
-                      }`}
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  ))}
-                </div>
-                <p className="sr-only">{reviews.average} out of 5 stars</p>
-              </div>
-              <p className="ml-2 text-sm text-gray-900">Based on {reviews.totalCount} reviews</p>
+          <div className="mt-3 flex items-center">
+            <div className="flex items-center">
+              {[0, 1, 2, 3, 4].map((rating) => (
+                <svg
+                  key={rating}
+                  className={`h-5 w-5 flex-shrink-0 ${
+                    reviews.average > rating ? "text-yellow-400" : "text-gray-300"
+                  }`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ))}
             </div>
-
-            <div className="mt-6">
-              <h3 className="sr-only">Review data</h3>
-
-              <dl className="space-y-3">
-                {reviews.counts.map((count) => (
-                  <div key={count.rating} className="flex items-center text-sm">
-                    <dt className="flex flex-1 items-center">
-                      <p className="w-3 font-medium text-gray-900">
-                        {count.rating}
-                        <span className="sr-only"> star reviews</span>
-                      </p>
-                      <div aria-hidden="true" className="ml-1 flex flex-1 items-center">
-                        <svg
-                          className="flex-shrink-0 h-5 w-5 text-yellow-400"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <div className="relative ml-3 flex-1">
-                          <div className="h-3 rounded-full border border-gray-200 bg-gray-100" />
-                          <div
-                            className="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400"
-                            style={{ width: `calc(${count.count} / ${reviews.totalCount} * 100%)` }}
-                          />
-                        </div>
-                      </div>
-                    </dt>
-                    <dd className="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">
-                      {Math.round((count.count / reviews.totalCount) * 100)}%
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+            <p className="ml-2 text-sm text-gray-900">Based on {reviews.totalCount} reviews</p>
           </div>
 
-          <div className="mt-16 lg:col-span-7 lg:col-start-6 lg:mt-0">
-            <h3 className="sr-only">Recent reviews</h3>
-
-            <div className="flow-root">
-              <div className="-my-12 divide-y divide-gray-200">
-                {/* Add review items here */}
-              </div>
-            </div>
+          <div className="mt-6">
+            <dl className="space-y-3">
+              {reviews.counts.map((count) => (
+                <div key={count.rating} className="flex items-center text-sm">
+                  <dt className="flex flex-1 items-center">
+                    <p className="w-3 font-medium text-gray-900">{count.rating}<span className="sr-only"> star reviews</span></p>
+                    <div aria-hidden="true" className="ml-1 flex flex-1 items-center">
+                      <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <div className="relative ml-3 flex-1">
+                        <div className="h-3 rounded-full border border-gray-200 bg-gray-100" />
+                        <div className="absolute inset-y-0 rounded-full border border-yellow-400 bg-yellow-400" 
+                          style={{ width: `calc(${count.count} / ${reviews.totalCount} * 100%)` }} 
+                        />
+                      </div>
+                    </div>
+                  </dt>
+                  <dd className="ml-3 w-10 text-right text-sm tabular-nums text-gray-900">
+                    {Math.round((count.count / reviews.totalCount) * 100)}%
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
+
+        {/* Right Column: Carousel */}
+        <div className="lg:col-span-7 lg:col-start-6">
+          <Carousel className="w-full max-w-xl mx-auto">
+            <CarouselContent>
+              {[
+                { name: "Alice Johnson", text: "Absolutely love this product! It exceeded my expectations." },
+                { name: "Michael Smith", text: "Great quality and fast shipping. Highly recommend!" },
+                { name: "Sophia Lee", text: "Customer service was excellent. Will buy again." },
+              ].map((review, index) => (
+                <CarouselItem key={index} className="p-6 border rounded-lg bg-gray-50 shadow-sm">
+                  <blockquote className="text-lg italic text-gray-900">
+                    "{review.text}"
+                  </blockquote>
+                  <p className="mt-4 font-semibold text-gray-700">- {review.name}</p>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+      </div>
       </section>
 
     
