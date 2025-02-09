@@ -25,7 +25,6 @@ export default function RootLayout({
          
           <main className="h-full bg-background overflow-x-hidden">
             
-            <NavBar />
             {children}
           </main>
           <Footer />

@@ -23,6 +23,7 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
   const isDark = dark;
   const isScrolled = scrollY ? scrollY > 50 : 0;
 
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-300 ${
@@ -66,13 +67,11 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
             >
               <ShoppingBag className="h-5 w-5" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className={isScrolled || isDark ? "" : "text-white"}
-            >
-              <User className="h-5 w-5" />
-            </Button>
+            
+
+            <Link className={isScrolled || isDark ? "" : "text-white"} href={`/login`}>
+              <User className="h-6 w-6" />
+            </Link>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
             <Button
@@ -127,9 +126,9 @@ export function NavBar({ scrollY, dark }: NavBarProps) {
                 <Button variant="ghost" size="icon" className="text-white">
                   <ShoppingBag className="h-6 w-6" />
                 </Button>
-                <Button variant="ghost" size="icon" className="text-white">
+                <Link className="text-white" href={`/login`}>
                   <User className="h-6 w-6" />
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
