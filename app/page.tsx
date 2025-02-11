@@ -10,6 +10,8 @@ import ProductList from "@/components/product-list"
 import BentoGrid from "@/components/bento-grid"
 import Fluff from "@/components/fluff"
 import Bags from "@/components/bags"
+import PixelTransition from "@/components/pixel-transition"
+import VariableProximity from "@/components/variable-proximity"
 
 
 const heroSlides = [
@@ -76,7 +78,7 @@ const featuredPosts = [
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const heroRef = useRef<HTMLDivElement>(null)
-
+  const containerRef = useRef(null)
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY)
@@ -135,6 +137,51 @@ export default function Home() {
       </section>
 
       {/* Featured Products Bento Grid */}
+      {/* <section
+        ref={containerRef}
+        style={{position: 'relative'}}
+        >
+          <VariableProximity
+            label={'Hover me! And then star React Bits on GitHub, or else...'}
+            className={'variable-proximity-demo'}
+            fromFontVariationSettings="'wght' 400, 'opsz' 9"
+            toFontVariationSettings="'wght' 1000, 'opsz' 40"
+            containerRef={containerRef}
+            radius={100}
+            falloff='linear'
+          />
+      </section> */}
+      
+      {/* <div className="flex gap-2 w-full mx-auto p-2">
+      {[...Array(5)].map((_, index) => (
+        <PixelTransition
+        firstContent={
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg"
+            alt="default pixel transition content, a cat!"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        }
+        secondContent={
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "grid",
+              placeItems: "center",
+              backgroundColor: "#111"
+            }}
+          >
+            <p style={{ fontWeight: 900, fontSize: "3rem", color: "#ffffff" }}>Meow!</p>
+          </div>
+        }
+        gridSize={12}
+        pixelColor='#ffffff'
+        animationStepDuration={0.4}
+        className="custom-pixel-card"
+      />
+      ))}
+      </div> */}
      
      <BentoGrid  />
 
